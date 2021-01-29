@@ -44,60 +44,6 @@ int main(){
     return 0;
 }
 
-string generateInnerfunction(int numberOfCompositions){
-    string function = "";
-
-    for(int i = 0; i < numberOfCompositions; i++){
-        int random = rand()%numberOfInnerCompositions;
-        ope = generateOperator();
-        flag = false;
-        f = generateFunction();
-                if(f == "pi")
-                    function += "\u03C0";
-                else
-                    if(f == "x" || f == "e")
-                        function += f;
-                    else{        
-                            if(f == "number")
-                                function += ((rand()%100)%2 == 0)? generatefraction() : generatenumber();
-                            else{
-                                if(f != "log_")
-                                    function += f;
-                                else
-                                    function += f + to_string(rand()%8 + 2);
-
-                                if(ope != '^')
-                                    function += "(";
-                                else{
-                                        flag = true;
-                                        function += "((";
-                                }
-
-                                function += (!random)? generateExp() : generateInnerfunction(random);
-                                function += ")";
-                            }
-                        }
-                        if(ope == '^'){
-                            function += "^(";
-                            function += (!random)? generateExp() : generateInnerfunction(random);
-                            function += ")";
-                            if(flag)
-                                function += ")";
-
-                            while(ope != '^')
-                                ope = generateOperator();
-
-                            if(i + 1 < numberOfCompositions)
-                                function += ope;
-                        }else
-                            if(i + 1 < numberOfCompositions)
-                                function += ope;
-
-    }
-
-    return function;
-}
-
 string generatefunction(int numberOfCompositions){
 
     string function = "";
@@ -126,13 +72,13 @@ string generatefunction(int numberOfCompositions){
                                 function += "((";
                             }
                                 
-                            function += (!random)? generateExp() : generateInnerfunction(random);
+                            function += (!random)? generateExp() : generatefunction(random);
                             function += ")";
                         }
                     
             if(ope == '^'){
                 function += "^(";
-                function += (!random)? generateExp() : generateInnerfunction(random);
+                function += (!random)? generateExp() : generatefunction(random);
                 function += ")";
                 if(flag)
                     function += ")";
@@ -146,8 +92,10 @@ string generatefunction(int numberOfCompositions){
                 if(i + 1 < numberOfCompositions)
                     function += ope;
     }
+
     if(count(function.begin(), function.end(), '(') == count(function.begin(), function.end(), ')') + 1)
         function += ")";
+        
     return function;
 }
 
