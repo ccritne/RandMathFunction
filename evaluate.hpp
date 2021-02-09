@@ -1,7 +1,3 @@
-/* C++ implementation to convert 
-infix expression to postfix*/
-// Note that here we use std::stack 
-// for Stack operations 
 #include<bits/stdc++.h> 
 using namespace std; 
 
@@ -33,7 +29,6 @@ bool isF(string op){
     return false;
 }
 
-//Function to return precedence of operators 
 int prec(string c) 
 { 
     if(isF(c))
@@ -54,8 +49,6 @@ bool isO(string op){
     return (prec(op) > 0 || isF(op))? true : false;
 }
 
-// The main function to convert infix expression 
-//to postfix expression 
 vector<string> infixToPostfix(vector<string> s) 
 { 
 	stack<string> st;  
