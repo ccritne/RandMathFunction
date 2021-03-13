@@ -10,5 +10,6 @@ It generates random math functions with different level of complexity.
 ~~arccos(number>1) and arccos( (function without x) > 1)~~
 
 ## Compile
+cd src
 g++ main.cpp -o main  
 ./main
