@@ -3,6 +3,7 @@ It generates random math functions with different level of complexity.
 
 ## Future Ideas
 - [X] Evaluate the function when x doesn't appear. [Shutting Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+- [X] Values of function in range (-15, +15) with increment of 0.5
 - [ ] Draw the graph.
 
 ## A few bugs
